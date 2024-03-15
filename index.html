@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="form_body">
+            <div id="form">
+                <h1>Signup Form</h1>
+                <button class="btn" id="btn1">Login</button>
+                <button class="btn active" id="btn2">Signup</button><br><br>
+                <form id="temp">
+                    <input type="text" class="abc" style="display: block;" placeholder="Name">
+                    <input type="text" id="email" placeholder="Email"><br>
+                    <input type="password" id="password" placeholder="Password"><br>
+                    <input type="c_password" class="abc" style="display: block;" placeholder="Confirm Password">
+                    <input type="button" id="button" value="Signup">
+                    <p>Already have an account? </p><a id="link" onclick="clickButton()">Login</a> <br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        function clickButton() {
+            if (document.getElementById("link").innerHTML == "Login") {
+                var button = document.getElementById("btn1");
+                button.click();
+            }
+            else{
+                var button = document.getElementById("btn2");
+                button.click();
+
+            }
+            
+        }
+
+        const activeBtn = document.querySelectorAll(".btn");
+        activeBtn.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                activeBtn.forEach(f => f.classList.remove('active'));
+                e.target.classList.toggle("active");
+                if (btn.innerHTML == "Signup") {
+                    document.querySelector("h1").innerHTML = "Signup Form";
+                    document.querySelector("p").innerHTML = "Already have an account? ";
+                    document.querySelector("a").innerHTML = "Login";
+                    document.getElementById("button").value = "Signup";
+
+                    var elements = document.getElementsByClassName("abc");
+                    for (var i = 0; i < elements.length; i++) {
+                        var element = elements[i];
+                        if (element.style.display === "none") {
+                            element.style.display = "block";
+                        }
+                    }
+
+                }
+                else {
+                    document.querySelector("h1").innerHTML = "Login Form";
+                    document.querySelector("p").innerHTML = "Don't have any account? ";
+                    document.querySelector("a").innerHTML = "Signup";
+                    document.getElementById("button").value = "Login";
+                    var elements = document.getElementsByClassName("abc");
+                    for (var i = 0; i < elements.length; i++) {
+                        var element = elements[i];
+                        element.style.display = "none";
+                    }
+
+
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
