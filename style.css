@@ -2,7 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.container {
+.container-fluid {
     box-sizing: border-box;
     align-items: center;
     margin: 20px 100px 20px 100px;
