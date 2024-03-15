@@ -9,21 +9,19 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div id="form_body">
-            <div id="form">
-                <h1>Signup Form</h1>
-                <button class="btn" id="btn1">Login</button>
-                <button class="btn active" id="btn2">Signup</button><br><br>
-                <form id="temp">
-                    <input type="text" class="abc" style="display: block;" placeholder="Name">
-                    <input type="text" id="email" placeholder="Email"><br>
-                    <input type="password" id="password" placeholder="Password"><br>
-                    <input type="c_password" class="abc" style="display: block;" placeholder="Confirm Password">
-                    <input type="button" id="button" value="Signup">
-                    <p>Already have an account? </p><a id="link" onclick="clickButton()">Login</a> <br>
-                </form>
-            </div>
+    <div id="form_body">
+        <div id="form">
+            <h1>Signup Form</h1>
+            <button class="btn" id="btn1">Login</button>
+            <button class="btn active" id="btn2">Signup</button><br><br>
+            <form id="temp">
+                <input type="text" class="abc" style="display: block;" placeholder="Name">
+                <input type="text" id="email" placeholder="Email"><br>
+                <input type="password" id="password" placeholder="Password"><br>
+                <input type="c_password" class="abc" style="display: block;" placeholder="Confirm Password">
+                <input type="button" id="button" value="Signup">
+                <p>Already have an account? </p><a id="link" onclick="clickButton()">Login</a> <br>
+            </form>
         </div>
     </div>
 
@@ -35,12 +33,12 @@
                 var button = document.getElementById("btn1");
                 button.click();
             }
-            else{
+            else {
                 var button = document.getElementById("btn2");
                 button.click();
 
             }
-            
+
         }
 
         const activeBtn = document.querySelectorAll(".btn");
