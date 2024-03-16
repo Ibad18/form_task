@@ -4,8 +4,16 @@
 body{
     background-image: linear-gradient(to right, lightblue, purple);
 }
+.input-field{
+    max-height: 65px;
+    /* transition: max-height 0.5s; */
+    overflow: hidden;
+    display: flex;
+}
+.input-group{
+    height: 350px;
+}
 #form_body {
-
     padding: 10px;
     margin: auto;
     height: 100%;
@@ -56,7 +64,7 @@ a{
     color: rgb(24, 158, 168);
     cursor: pointer;
 }
-.active{
+.disable{
 background-color: #090979;
 color: white;
 }

@@ -11,71 +11,67 @@
 <body>
     <div id="form_body">
         <div id="form">
-            <h1>Signup Form</h1>
-            <button class="btn" id="btn1">Login</button>
-            <button class="btn active" id="btn2">Signup</button><br><br>
+            <h1 id="h1">Signup Form</h1>
+            <button class="" id="login_btn">Login</button>
+            <button class="disable" id="signup_btn">Signup</button><br><br>
             <form id="temp">
-                <input type="text" class="abc" style="display: block;" placeholder="Name">
-                <input type="text" id="email" placeholder="Email"><br>
-                <input type="password" id="password" placeholder="Password"><br>
-                <input type="c_password" class="abc" style="display: block;" placeholder="Confirm Password">
-                <input type="button" id="button" value="Signup">
-                <p>Already have an account? </p><a id="link" onclick="clickButton()">Login</a> <br>
+                <div class="input-group">
+                    <div class="input-field" id="name_field">
+                        <input type="text" class="abc" placeholder="Name">
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="email" placeholder="Email"><br>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" id="password" placeholder="Password"><br>
+                    </div>
+                    <div class="input-field" id="c_password_field">
+                        <input type="c_password" class="abc" placeholder="Confirm Password">
+                    </div>
+                    <input type="button" id="button" value="Signup">
+                    <p id="para">Already have an account? </p><a id="link" onclick="changeBtn()">Login</a> <br>
+                </div>
             </form>
         </div>
     </div>
 
 
     <script>
-
-        function clickButton() {
-            if (document.getElementById("link").innerHTML == "Login") {
-                var button = document.getElementById("btn1");
-                button.click();
-            }
-            else {
-                var button = document.getElementById("btn2");
-                button.click();
-
-            }
+        let loginBtn = document.getElementById("login_btn");
+        let signupBtn = document.getElementById("signup_btn");
+        let nameField = document.getElementById("name_field");
+        let cPasswordField = document.getElementById("c_password_field");
+        let heading = document.getElementById("h1");
+        let submitBtn = document.getElementById("button");
+        loginBtn.onclick = function () {
+            nameField.style.maxHeight = "0";
+            cPasswordField.style.maxHeight = "0";
+            heading.innerHTML = "Login Form";
+            signupBtn.classList.remove("disable");
+            loginBtn.classList.add("disable");
+            submitBtn.value = "Login";
+            document.getElementById("para").innerHTML = "Don't have any account? "
+            document.getElementById("link").innerHTML = "Singup";
 
         }
-
-        const activeBtn = document.querySelectorAll(".btn");
-        activeBtn.forEach((btn) => {
-            btn.addEventListener("click", (e) => {
-                activeBtn.forEach(f => f.classList.remove('active'));
-                e.target.classList.toggle("active");
-                if (btn.innerHTML == "Signup") {
-                    document.querySelector("h1").innerHTML = "Signup Form";
-                    document.querySelector("p").innerHTML = "Already have an account? ";
-                    document.querySelector("a").innerHTML = "Login";
-                    document.getElementById("button").value = "Signup";
-
-                    var elements = document.getElementsByClassName("abc");
-                    for (var i = 0; i < elements.length; i++) {
-                        var element = elements[i];
-                        if (element.style.display === "none") {
-                            element.style.display = "block";
-                        }
-                    }
-
-                }
-                else {
-                    document.querySelector("h1").innerHTML = "Login Form";
-                    document.querySelector("p").innerHTML = "Don't have any account? ";
-                    document.querySelector("a").innerHTML = "Signup";
-                    document.getElementById("button").value = "Login";
-                    var elements = document.getElementsByClassName("abc");
-                    for (var i = 0; i < elements.length; i++) {
-                        var element = elements[i];
-                        element.style.display = "none";
-                    }
-
-
-                }
-            });
-        });
+        signupBtn.onclick = function () {
+            nameField.style.maxHeight = "65px";
+            cPasswordField.style.maxHeight = "65px";
+            heading.innerHTML = "Signup Form";
+            signupBtn.classList.add("disable");
+            loginBtn.classList.remove("disable");
+            submitBtn.value = "Signup";
+            document.getElementById("para").innerHTML = "Already have an account? "
+            document.getElementById("link").innerHTML = "Login";
+        }
+        function changeBtn() {
+            if (document.getElementById("link").innerHTML == "Login") {
+                loginBtn.click();
+            }
+            else {
+                signupBtn.click();
+            }
+        }
     </script>
 </body>
 
